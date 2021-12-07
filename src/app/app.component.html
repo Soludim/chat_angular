@@ -1,0 +1,24 @@
+<mat-card>
+    <h2>Realtime Chat Application</h2>
+        <label>Username</label>
+        <input type="text" name="username" [(ngModel)]="username"/>
+        <label>Choose group</label>
+        <select name="group" [(ngModel)]="group">
+            <option value="CS1">CS1</option>
+            <option value="CS2">CS2</option>
+            <option value="CS3">CS3</option>
+        </select>
+        <button type="button" (click)="Join()">Join</button>
+        <button type="button" (click)="Leave()">Leave</button><br />
+
+        <div style="height: 200px; padding: 15px">
+            <div *ngFor="let item of messages">
+                <span><strong>{{item.user}}</strong>: {{item.message}}</span>
+            </div>
+        </div>
+
+        <label>Message</label>
+        <input type="text" name="message" [(ngModel)]="message"/>
+        <button type="button" (click)="Send()">Send</button>
+</mat-card>
+<router-outlet></router-outlet>
